@@ -8,7 +8,7 @@ const port = process.env.PORT || 4242;
 app.use(express.static(path.resolve("public")));
 
 io.on("connection", (socket) => {
-    console.log("an user connected: ", socket);
+    console.log("an user connected:  ", socket.conn?.id);
 
     socket.on("message", (message) => {
         io.emit("message", message);
